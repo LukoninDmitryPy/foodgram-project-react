@@ -18,7 +18,6 @@ class Tag(models.Model):
     class Meta:
         ordering = ['-id']
         verbose_name = 'Тег'
-        verbose_name_plural = 'Теги'
 
     def __str__(self):
         return self.name
@@ -35,7 +34,6 @@ class Ingredient(models.Model):
     class Meta:
         ordering = ['-id']
         verbose_name = 'Ингредиент'
-        verbose_name_plural = 'Ингредиенты'
 
     def __str__(self):
         return self.name
@@ -69,7 +67,6 @@ class Recipe(models.Model):
     class Meta:
         ordering = ['-id']
         verbose_name = 'Рецепт'
-        verbose_name_plural = 'Рецепты'
 
     def __str__(self):
         return self.name
@@ -98,7 +95,6 @@ class IngredientQuantity(models.Model):
             )
         ]
         verbose_name = 'Количество ингредиента'
-        verbose_name_plural = 'Количество ингредиентов'
 
 
 class Favorite(models.Model):
@@ -119,7 +115,6 @@ class Favorite(models.Model):
             )
         ]
         verbose_name = 'Избранное'
-        verbose_name_plural = 'Избранное'
 
 
 class ShoppingCart(models.Model):
@@ -141,4 +136,3 @@ class ShoppingCart(models.Model):
             )
         ]
         verbose_name = 'Корзина покупок'
-        verbose_name_plural = 'Корзины покупок'
