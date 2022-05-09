@@ -166,7 +166,7 @@ class RecipeWriteSerializer(serializers.ModelSerializer):
         IngredientQuantity.objects.filter(recipe=instance).all().delete()
         ingredients = validated_data.get('ingredients')
         self.create_ingredients(ingredients, instance)
-
+        super().update(instance, validated_data)
         instance.save()
         return instance
 

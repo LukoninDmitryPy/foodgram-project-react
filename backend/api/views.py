@@ -58,7 +58,7 @@ class RecipeViewSet(ModelViewSet):
             serializer.is_valid(raise_exception=True)
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        elif request.method == 'DELETE':
+        if request.method == 'DELETE':
             user = request.user
             recipe = get_object_or_404(Recipe, id=pk)
             favorite = get_object_or_404(
@@ -79,7 +79,7 @@ class RecipeViewSet(ModelViewSet):
             serializer.is_valid(raise_exception=True)
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        elif request.method == 'DELETE':
+        if request.method == 'DELETE':
             user = request.user
             recipe = get_object_or_404(Recipe, id=pk)
             shopping_cart = get_object_or_404(
