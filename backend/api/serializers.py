@@ -31,6 +31,7 @@ class IngredientQuantitySerializer(serializers.ModelSerializer):
         model = IngredientQuantity
         fields = ('id', 'name', 'measurement_unit', 'amount')
 
+
 class IngredientWriteSerializer(serializers.ModelSerializer):
     id = serializers.PrimaryKeyRelatedField(
         queryset=Ingredient.objects.all()

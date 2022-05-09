@@ -9,10 +9,11 @@ from users.models import Follow, MyUser as User
 from users.serializers import FollowListSerializer, FollowSerializer
 from rest_framework.decorators import action
 
+
 class FollowApiView(APIView):
     permission_classes = [IsAuthenticated]
 
-    @action(detail=True, methods=['post',],)
+    @action(detail=True, methods=['post', ],)
     def post(self, request, id):
         data = {'user': request.user.id, 'following': id}
         serializer = FollowSerializer(data=data, context={'request': request})

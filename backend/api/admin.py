@@ -8,6 +8,7 @@ from users.models import (
     Follow, MyUser
 )
 
+
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'slug')
@@ -36,15 +37,15 @@ class FavoriteAdmin(admin.ModelAdmin):
 
 
 @admin.register(ShoppingCart)
-class FavoriteAdmin(admin.ModelAdmin):
+class ShoppingCartAdmin(admin.ModelAdmin):
     list_display = ('id',)
 
 
 @admin.register(Follow)
-class FavoriteAdmin(admin.ModelAdmin):
+class FollowAdmin(admin.ModelAdmin):
     list_display = ('id',)
 
 
 @admin.register(MyUser)
-class FavoriteAdmin(admin.ModelAdmin):
+class MyUserAdmin(admin.ModelAdmin):
     list_display = ('first_name',)
