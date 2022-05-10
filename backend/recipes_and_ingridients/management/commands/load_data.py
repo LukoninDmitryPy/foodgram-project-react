@@ -16,7 +16,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         for model, base in TABLES_DICT.items():
             with open(
-                f'{settings.BASE_DIR}/static/data/{base}',
+                f'{base}',
                 'r', encoding='utf-8'
             ) as csv_file:
                 reader = csv.DictReader(csv_file)
