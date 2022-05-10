@@ -4,7 +4,6 @@ from django.conf import settings
 from django.core.management import BaseCommand
 
 from recipes_and_ingridients.models import Ingredient
-from users.models import User
 
 TABLES_DICT = {
     Ingredient: 'ingridients.csv',
