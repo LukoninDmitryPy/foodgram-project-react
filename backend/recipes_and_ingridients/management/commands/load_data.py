@@ -4,7 +4,7 @@ from django.core.management import BaseCommand
 from recipes_and_ingridients.models import Ingredient
 
 TABLES_DICT = {
-    Ingredient: 'ingridients.csv',
+    Ingredient: 'ingredients.csv',
 }
 
 
