@@ -157,7 +157,7 @@ class RecipeWriteSerializer(serializers.ModelSerializer):
         IngredientQuantity.objects.filter(recipe=recipe).all().delete()
         ingredients = validated_data.pop('ingredients')
         tags = validated_data.pop('tags')
-        self.create_ingredients(recipe, ingredients, tags)
+        self.create_ingredients(ingredients, recipe)
         return super().update(recipe, validated_data)
 
     def to_representation(self, instance):
