@@ -153,19 +153,10 @@ class RecipeWriteSerializer(serializers.ModelSerializer):
         return recipe
 
     def update(self, recipe, validated_data):
-        recipe.image = validated_data.get('image', recipe.image)
-        recipe.name = validated_data.get('name', recipe.name)
-        recipe.text = validated_data.get('text', recipe.text)
-        recipe.cooking_time = validated_data.get(
-            'cooking_time', recipe.cooking_time
-        )
-
         recipe.tags.clear()
-        tags = validated_data.pop('tags')
-        self.create_tags(tags, recipe)
-
         IngredientQuantity.objects.filter(recipe=recipe).all().delete()
         ingredients = validated_data.pop('ingredients')
+        tags = validated_data.pop('tags')
         self.create_ingredients(recipe, ingredients, tags)
         return super().update(recipe, validated_data)
 
