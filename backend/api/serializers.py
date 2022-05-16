@@ -94,7 +94,7 @@ class RecipeWriteSerializer(serializers.ModelSerializer):
         ingredients = self.initial_data.get('ingredients')
         if not ingredients:
             raise serializers.ValidationError({
-                'ingredients': 'Добавьте ингридиент!'
+                'ingredients': 'Добавьте ингредиент!'
             })
         ingredients_list = []
         for ingredient in ingredients:
@@ -107,7 +107,7 @@ class RecipeWriteSerializer(serializers.ModelSerializer):
             amount = ingredient['amount']
             if int(amount) <= 0:
                 raise serializers.ValidationError({
-                    'amount': 'Не менее 1 ингридиента!'
+                    'amount': 'Не менее 1 ингредиента!'
                 })
 
         tags = self.initial_data.get('tags')

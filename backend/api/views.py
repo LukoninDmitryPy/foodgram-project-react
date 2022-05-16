@@ -112,3 +112,21 @@ class RecipeViewSet(ModelViewSet):
         for name, count in result.items():
             writer.writerow([name, str(count[0]), count[1]])
         return response
+
+
+def ADD_csv(request):
+    user = request.user
+    if user.is_authenticated and user.is_staff:
+        with open('./ingredients.csv', 'r') as file:
+            csv_reader = csv.reader(file, delimiter=',')
+            for row in csv_reader:
+                try:
+                    Ingredient.objects.get_or_create(
+                        name=row[0],
+                        measurement_unit=row[1]
+                    )
+                except Exception as error:
+
+                    continue
+            return Response('ok', status=status.HTTP_201_CREATED)
+    return Response("error", status=status.HTTP)

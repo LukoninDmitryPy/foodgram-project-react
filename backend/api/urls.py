@@ -4,7 +4,8 @@ from rest_framework.routers import DefaultRouter
 from .views import (
     IngredientsViewSet,
     RecipeViewSet,
-    TagsViewSet
+    TagsViewSet,
+    ADD_csv
 )
 
 router = DefaultRouter()
@@ -14,4 +15,5 @@ router.register('recipes', RecipeViewSet, basename='recipes')
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('add_csv/', ADD_csv),
 ]
