@@ -114,7 +114,7 @@ class RecipeViewSet(ModelViewSet):
         return response
 
 
-def ADD_csv(request):
+def add_csv(request):
     user = request.user
     if user.is_authenticated and user.is_staff:
         with open('./ingredients.csv', 'r') as file:
@@ -125,8 +125,7 @@ def ADD_csv(request):
                         name=row[0],
                         measurement_unit=row[1]
                     )
-                except Exception as error:
-
+                except Exception:
                     continue
             return Response('ok', status=status.HTTP_201_CREATED)
     return Response("error", status=status.HTTP)

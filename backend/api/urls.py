@@ -5,7 +5,7 @@ from .views import (
     IngredientsViewSet,
     RecipeViewSet,
     TagsViewSet,
-    ADD_csv
+    add_csv
 )
 
 router = DefaultRouter()
@@ -15,5 +15,5 @@ router.register('recipes', RecipeViewSet, basename='recipes')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('add_csv/', ADD_csv),
+    path('add_csv/', add_csv),
 ]
